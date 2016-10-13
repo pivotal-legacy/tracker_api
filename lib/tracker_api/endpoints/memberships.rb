@@ -21,6 +21,13 @@ module TrackerApi
 
         Resources::ProjectMembership.new({ project_id: project_id }.merge(data))
       end
+
+      def update(project_id, membership_id, params={})
+        data = client.put("/projects/#{project_id}/memberships/#{membership_id}", params: params).body
+        
+        Resources::ProjectMembership.new({ project_id: project_id }.merge(data))
+      end
+
     end
   end
 end

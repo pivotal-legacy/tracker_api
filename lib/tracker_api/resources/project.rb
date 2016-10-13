@@ -173,6 +173,14 @@ module TrackerApi
       def add_membership(params)
         Endpoints::Memberships.new(client).add(id, params)
       end
+      # Update membership for the project.
+      #
+      # @param [Hash] params attributes to add a member; must have user_id; role
+      # @return [ProjectMembership] member that was added to project
+
+      def update_membership(membership_id, params)
+        Endpoints::Memberships.new(client).update(id, membership_id, params)
+      end
     end
   end
 end
